@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     heading.addEventListener('click', () => {
         colorIndex = (colorIndex + 1) % colors.length;
-        document.body.style.backgroundColor = colors[colorIndex];
-        console.log(`Background changed to ${colors[colorIndex]}`);
+        const newColor = colors[colorIndex];
+        document.body.style.backgroundColor = newColor;
+        const statusMsg = document.getElementById('status-message');
+        if (statusMsg) {
+            statusMsg.textContent = `Background color is now ${newColor}`;
+        }
+        console.log(`Background changed to ${newColor}`);
     });
 });
